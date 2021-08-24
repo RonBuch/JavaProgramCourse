@@ -17,7 +17,8 @@ public class MyFirstProgram {
 
 
 
-    Point point = new Point(-2.1, 4.4, -10, 30, 2);
+//    Point point = new Point(-2.1, 4.4, -10, 30, 2); //Исходный объект для задания №2
+    Point point = new Point(-5, 5, 5, 5, 2);
     System.out.println("Расстояние между точкой А и В на плоскости = " + point.pointDistance() + " единиц измерения.");
   }
 
