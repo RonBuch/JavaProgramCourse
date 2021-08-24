@@ -19,4 +19,8 @@ public class Point {
     this.BC = by - ay;
   }
 
+  public double pointDistance() {
+    return Math.sqrt((Math.pow(this.AC, this.powerOf2)) + (Math.pow(this.BC, this.powerOf2)));
+  }
+
 }
