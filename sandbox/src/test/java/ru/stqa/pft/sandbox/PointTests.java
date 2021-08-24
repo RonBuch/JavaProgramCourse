@@ -16,8 +16,13 @@ public class PointTests {
   public void testDistanceIsZero() {
     Point p = new Point(5, 5, 5, 5, 2);
     Assert.assertEquals(p.pointDistance(), 0.0);
-  }
 
+  }
+  @Test
+  public void testNegative () {
+    Point p = new Point(5,5,5,55,2);
+    Assert.assertFalse(p.pointDistance()==0);
+  }
 
 
 }
