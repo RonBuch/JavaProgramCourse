@@ -15,6 +15,8 @@ public class MyFirstProgram {
     Rectangle r = new Rectangle(10, 20);
     System.out.println("Площадь прямоугольника со сторонами " + r.a + " и " + r.b + " = " + r.area());
 
+
+
     Point point = new Point(-2.1, 4.4, -10, 30, 2);
     System.out.println("Расстояние между точкой А и В на плоскости = " + point.pointDistance() + " единиц измерения.");
   }
