@@ -42,14 +42,7 @@ public class ApplicationManager {
         }
     }
 
-    public boolean isAlertPresent() {
-        try {
-            wd.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
-    }
+
 
     public void logout() {
         wd.findElement(By.linkText("Logout")).click();
