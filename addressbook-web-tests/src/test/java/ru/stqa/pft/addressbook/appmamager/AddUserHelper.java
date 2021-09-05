@@ -64,18 +64,22 @@ public class AddUserHelper extends HelperBase {
     }
 
     public void initAddUser() {
-        wd.findElement(By.linkText("add new")).click();
+        click(By.linkText("add new"));
+
     }
 
     public void deleteAllUsers() {
-        wd.findElement(By.xpath("//input[@value='Delete']")).click();
+        click(By.xpath("//input[@value='Delete']"));
+
     }
 
     public void selectAllUsers() {
-        wd.findElement(By.id("MassCB")).click();
+     click(By.id("MassCB"));
+
     }
 
     public void goToHomePageInAddUserPage() {
-        wd.findElement(By.linkText("home page")).click();
+        click(By.linkText("home page"));
+        
     }
 }
