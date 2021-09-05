@@ -39,24 +39,17 @@ public class AddUserHelper extends HelperBase {
         type(By.name("email2"),addUserData.getEmailAddress2());
         type(By.name("email3"),addUserData.getEmailAddress3());
         type(By.name("homepage"), addUserData.getHomepage());
-
-        wd.findElement(By.name("theform")).click();
-        wd.findElement(By.name("bday")).click();
+        click(By.name("bday"));
         new Select(wd.findElement(By.name("bday"))).selectByVisibleText(addUserData.getBirthDay());
-        wd.findElement(By.name("bmonth")).click();
+        click(By.name("bmonth"));
         new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(addUserData.getBirthMonth());
-        wd.findElement(By.name("byear")).click();
-        wd.findElement(By.name("byear")).clear();
-        wd.findElement(By.name("byear")).sendKeys(addUserData.getBirthYear());
-        wd.findElement(By.name("aday")).click();
+        type(By.name("byear"), addUserData.getBirthYear());
+        click(By.name("aday"));
         new Select(wd.findElement(By.name("aday"))).selectByVisibleText(addUserData.getAnniversaryDay());
-        wd.findElement(By.name("amonth")).click();
+        click(By.name("amonth"));
+        click(By.name("amonth"));
         new Select(wd.findElement(By.name("amonth"))).selectByVisibleText(addUserData.getAnniversaryMonth());
-        wd.findElement(By.name("ayear")).click();
-        wd.findElement(By.name("ayear")).clear();
-        wd.findElement(By.name("ayear")).sendKeys(addUserData.getAnniversaryYear());
-        wd.findElement(By.name("theform")).click();
-
+        type(By.name("ayear"), addUserData.getAnniversaryYear());
         type(By.name("address2"), addUserData.getSecondAddress());
         type(By.name("phone2"), addUserData.getSecondPhoneNumber());
         type(By.name("notes"), addUserData.getNotes());
@@ -80,6 +73,6 @@ public class AddUserHelper extends HelperBase {
 
     public void goToHomePageInAddUserPage() {
         click(By.linkText("home page"));
-        
+
     }
 }
