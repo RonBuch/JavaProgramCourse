@@ -5,11 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.AddUserData;
 
-public class AddUserHelper {
-    private WebDriver wd;
+public class AddUserHelper extends HelperBase {
+
 
     public AddUserHelper(WebDriver wd) {
-    this.wd = wd;
+    super(wd);
     }
 
     public void acceptAlert() {
@@ -17,54 +17,29 @@ public class AddUserHelper {
     }
 
     public void clickEnter() {
-        wd.findElement(By.id("content")).click();
-        wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+        click(By.id("content"));
+        click(By.xpath("//div[@id='content']/form/input[21]"));
+
+
     }
 
     public void fillUserForm(AddUserData addUserData) {
-        wd.findElement(By.name("firstname")).clear();
-        wd.findElement(By.name("firstname")).sendKeys(addUserData.getFirstName());
-        wd.findElement(By.name("middlename")).clear();
-        wd.findElement(By.name("middlename")).sendKeys(addUserData.getMiddleName());
-        wd.findElement(By.name("lastname")).click();
-        wd.findElement(By.name("lastname")).clear();
-        wd.findElement(By.name("lastname")).sendKeys(addUserData.getLastName());
-        wd.findElement(By.name("nickname")).click();
-        wd.findElement(By.name("nickname")).clear();
-        wd.findElement(By.name("nickname")).sendKeys(addUserData.getNickName());
-        wd.findElement(By.name("title")).click();
-        wd.findElement(By.name("title")).clear();
-        wd.findElement(By.name("title")).sendKeys(addUserData.getTitle());
-        wd.findElement(By.name("company")).click();
-        wd.findElement(By.name("company")).clear();
-        wd.findElement(By.name("company")).sendKeys(addUserData.getCompanyName());
-        wd.findElement(By.name("address")).click();
-        wd.findElement(By.name("address")).clear();
-        wd.findElement(By.name("address")).sendKeys(addUserData.getFirstAddress());
-        wd.findElement(By.name("home")).click();
-        wd.findElement(By.name("home")).clear();
-        wd.findElement(By.name("home")).sendKeys(addUserData.getHomePhoneNumber());
-        wd.findElement(By.name("mobile")).click();
-        wd.findElement(By.name("mobile")).clear();
-        wd.findElement(By.name("mobile")).sendKeys(addUserData.getMobilePhoneNumber());
-        wd.findElement(By.name("work")).click();
-        wd.findElement(By.name("work")).clear();
-        wd.findElement(By.name("work")).sendKeys(addUserData.getWorkPhoneNumber());
-        wd.findElement(By.name("fax")).click();
-        wd.findElement(By.name("fax")).clear();
-        wd.findElement(By.name("fax")).sendKeys(addUserData.getFaxPhoneNumber());
-        wd.findElement(By.name("email")).click();
-        wd.findElement(By.name("email")).clear();
-        wd.findElement(By.name("email")).sendKeys(addUserData.getEmailAddress1());
-        wd.findElement(By.name("email2")).click();
-        wd.findElement(By.name("email2")).clear();
-        wd.findElement(By.name("email2")).sendKeys(addUserData.getEmailAddress2());
-        wd.findElement(By.name("email3")).click();
-        wd.findElement(By.name("email3")).clear();
-        wd.findElement(By.name("email3")).sendKeys(addUserData.getEmailAddress3());
-        wd.findElement(By.name("homepage")).click();
-        wd.findElement(By.name("homepage")).clear();
-        wd.findElement(By.name("homepage")).sendKeys(addUserData.getHomepage());
+        type(By.name("firstname"), addUserData.getFirstName());
+        type(By.name("middlename"), addUserData.getMiddleName());
+        type(By.name("lastname"), addUserData.getLastName());
+        type(By.name("nickname"), addUserData.getNickName());
+        type(By.name("title"), addUserData.getTitle());
+        type(By.name("company"), addUserData.getCompanyName());
+        type(By.name("address"), addUserData.getFirstAddress());
+        type(By.name("home"), addUserData.getHomePhoneNumber());
+        type(By.name("mobile"), addUserData.getMobilePhoneNumber());
+        type(By.name("work"), addUserData.getWorkPhoneNumber());
+        type(By.name("fax"), addUserData.getFaxPhoneNumber());
+        type(By.name("email"), addUserData.getEmailAddress1());
+        type(By.name("email2"),addUserData.getEmailAddress2());
+        type(By.name("email3"),addUserData.getEmailAddress3());
+        type(By.name("homepage"), addUserData.getHomepage());
+
         wd.findElement(By.name("theform")).click();
         wd.findElement(By.name("bday")).click();
         new Select(wd.findElement(By.name("bday"))).selectByVisibleText(addUserData.getBirthDay());
@@ -81,15 +56,11 @@ public class AddUserHelper {
         wd.findElement(By.name("ayear")).clear();
         wd.findElement(By.name("ayear")).sendKeys(addUserData.getAnniversaryYear());
         wd.findElement(By.name("theform")).click();
-        wd.findElement(By.name("address2")).click();
-        wd.findElement(By.name("address2")).clear();
-        wd.findElement(By.name("address2")).sendKeys(addUserData.getSecondAddress());
-        wd.findElement(By.name("phone2")).click();
-        wd.findElement(By.name("phone2")).clear();
-        wd.findElement(By.name("phone2")).sendKeys(addUserData.getSecondPhoneNumber());
-        wd.findElement(By.name("notes")).click();
-        wd.findElement(By.name("notes")).clear();
-        wd.findElement(By.name("notes")).sendKeys(addUserData.getNotes());
+
+        type(By.name("address2"), addUserData.getSecondAddress());
+        type(By.name("phone2"), addUserData.getSecondPhoneNumber());
+        type(By.name("notes"), addUserData.getNotes());
+
     }
 
     public void initAddUser() {
