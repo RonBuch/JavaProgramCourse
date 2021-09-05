@@ -1,104 +1,27 @@
-package ru.stqa.pft.addressbook;
+package ru.stqa.pft.addressbook.appmamager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import ru.stqa.pft.addressbook.model.AddUserData;
 
-import java.util.concurrent.TimeUnit;
+public class AddUserHelper {
+    private WebDriver wd;
 
-public class TestBase {
-    public WebDriver wd;
-
-    @BeforeMethod(alwaysRun = true)
-    public void setUp() throws Exception {
-        wd = new ChromeDriver();
-        wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        wd.get("http://localhost/addressbook/group.php");
-        login("admin", "secret");
+    public AddUserHelper(WebDriver wd) {
+    this.wd = wd;
     }
 
-    private void login(String username, String password) {
-        wd.findElement(By.name("user")).click();
-        wd.findElement(By.name("user")).clear();
-        wd.findElement(By.name("user")).sendKeys(username);
-        wd.findElement(By.name("pass")).clear();
-        wd.findElement(By.name("pass")).sendKeys(password);
-        wd.findElement(By.xpath("//input[@value='Login']")).click();
-    }
-
-    protected void returnToGroupPage() {
-        wd.findElement(By.linkText("group page")).click();
-        wd.findElement(By.linkText("Logout")).click();
-    }
-
-    protected void submitGroupCreation() {
-        wd.findElement(By.name("submit")).click();
-    }
-
-    protected void fillGroupForm(GroupData groupData) {
-        wd.findElement(By.name("group_name")).click();
-        wd.findElement(By.name("group_name")).clear();
-        wd.findElement(By.name("group_name")).sendKeys(groupData.getName());
-        wd.findElement(By.name("group_header")).clear();
-        wd.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
-        wd.findElement(By.name("group_footer")).clear();
-        wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
-    }
-
-    protected void initGroupCreation() {
-        wd.findElement(By.name("new")).click();
-    }
-
-    protected void gotoGroupPage() {
-        wd.findElement(By.linkText("groups")).click();
-    }
-
-    @AfterMethod(alwaysRun = true)
-    public void tearDown() throws Exception {
-        wd.quit();
-    }
-
-    protected void acceptAlert() {
+    public void acceptAlert() {
         wd.switchTo().alert().accept();
     }
 
-    private boolean isElementPresent(By by) {
-        try {
-            wd.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
-
-    private boolean isAlertPresent() {
-        try {
-            wd.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
-    }
-
-    protected void deeleteSelectedGroups() {
-        wd.findElement(By.name("delete")).click();
-    }
-
-    protected void selectGroup() {
-        wd.findElement(By.name("selected[]")).click();
-    }
-
-    protected void clickEnter() {
+    public void clickEnter() {
         wd.findElement(By.id("content")).click();
         wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
     }
 
-    protected void fillUserForm(AddUserData addUserData) {
+    public void fillUserForm(AddUserData addUserData) {
         wd.findElement(By.name("firstname")).clear();
         wd.findElement(By.name("firstname")).sendKeys(addUserData.getFirstName());
         wd.findElement(By.name("middlename")).clear();
@@ -169,23 +92,19 @@ public class TestBase {
         wd.findElement(By.name("notes")).sendKeys(addUserData.getNotes());
     }
 
-    protected void initAddUser() {
+    public void initAddUser() {
         wd.findElement(By.linkText("add new")).click();
     }
 
-    protected void logout() {
-        wd.findElement(By.linkText("Logout")).click();
-    }
-
-    protected void deleteAllUsers() {
+    public void deleteAllUsers() {
         wd.findElement(By.xpath("//input[@value='Delete']")).click();
     }
 
-    protected void selectAllUsers() {
+    public void selectAllUsers() {
         wd.findElement(By.id("MassCB")).click();
     }
 
-    protected void goToHomePageInAddUserPage() {
+    public void goToHomePageInAddUserPage() {
         wd.findElement(By.linkText("home page")).click();
     }
 }
