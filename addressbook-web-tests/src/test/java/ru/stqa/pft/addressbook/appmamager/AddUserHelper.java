@@ -61,7 +61,7 @@ public class AddUserHelper extends HelperBase {
 
     }
 
-    public void deleteAllUsers() {
+    public void clickOnDeleteButton() {
         click(By.xpath("//input[@value='Delete']"));
 
     }
@@ -74,5 +74,9 @@ public class AddUserHelper extends HelperBase {
     public void goToHomePageInAddUserPage() {
         click(By.linkText("home page"));
 
+    }
+
+    public void selectFirstUserInList() {
+        click(By.xpath("//input[@id][1]"));
     }
 }
