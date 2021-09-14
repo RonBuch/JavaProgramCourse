@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.model;
 
 public class AddUserData {
+
     private final String firstName;
     private final String middleName;
     private final String lastName;
@@ -25,8 +26,33 @@ public class AddUserData {
     private final String secondAddress;
     private final String secondPhoneNumber;
     private final String notes;
+    private String group;
 
-    public AddUserData(String firstName, String middleName, String lastName, String nickName, String title, String companyName, String firstAddress, String homePhoneNumber, String mobilePhoneNumber, String workPhoneNumber, String faxPhoneNumber, String emailAddress1, String emailAddress2, String emailAddress3, String homepage, String birthDay, String birthMonth, String birthYear, String anniversaryDay, String anniversaryMonth, String anniversaryYear, String secondAddress, String secondPhoneNumber, String notes) {
+    public AddUserData(String firstName,
+                       String middleName,
+                       String lastName,
+                       String nickName,
+                       String title,
+                       String companyName,
+                       String firstAddress,
+                       String homePhoneNumber,
+                       String mobilePhoneNumber,
+                       String workPhoneNumber,
+                       String faxPhoneNumber,
+                       String emailAddress1,
+                       String emailAddress2,
+                       String emailAddress3,
+                       String homepage,
+                       String birthDay,
+                       String birthMonth,
+                       String birthYear,
+                       String anniversaryDay,
+                       String anniversaryMonth,
+                       String anniversaryYear,
+                       String secondAddress,
+                       String secondPhoneNumber,
+                       String notes,
+                       String group) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -51,6 +77,7 @@ public class AddUserData {
         this.secondAddress = secondAddress;
         this.secondPhoneNumber = secondPhoneNumber;
         this.notes = notes;
+        this.group = group;
     }
 
     public String getFirstName() {
@@ -147,5 +174,9 @@ public class AddUserData {
 
     public String getNotes() {
         return notes;
+    }
+
+    public String getGroup() {
+        return group;
     }
 }
