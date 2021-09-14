@@ -10,31 +10,8 @@ public class AddUserTests extends TestBase {
     public void testAddUserTests() throws Exception {
 
         app.getAddUserHelper().initAddUser();
-        app.getAddUserHelper().fillUserForm(new AddUserData("First name",
-                "Middle name",
-                "Last name",
-                "Nick name",
-                "Title",
-                "Company name",
-                "Address 1",
-                "homePhone",
-                "mobilePhone",
-                "workPhone",
-                "faxPhone",
-                "email1",
-                "email2",
-                "email3",
-                "homepage",
-                "10",
-                "January",
-                "1900",
-                "11",
-                "February",
-                "1901",
-                "Address 2",
-                "home 2",
-                "notes",
-                "test1"), true);
+        app.getAddUserHelper().fillUserForm(new AddUserData("Mike", "Vlad", "Kryz",
+                "My Address", "8800755000", "mail@mail.mail", "test1"), true);
         app.getAddUserHelper().clickEnter();
         app.getAddUserHelper().goToHomePageInAddUserPage();
         app.logout();
