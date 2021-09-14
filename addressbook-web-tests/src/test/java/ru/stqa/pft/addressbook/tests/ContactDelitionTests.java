@@ -2,7 +2,7 @@ package ru.stqa.pft.addressbook.tests;
 
 import org.testng.annotations.Test;
 
-public class AddUserDelitionTests extends TestBase {
+public class ContactDelitionTests extends TestBase {
 
     @Test
     public void delitionFirstOneUser() {
