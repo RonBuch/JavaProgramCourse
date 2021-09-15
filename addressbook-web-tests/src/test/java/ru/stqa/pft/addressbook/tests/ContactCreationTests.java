@@ -9,13 +9,13 @@ public class ContactCreationTests extends TestBase {
     @Test
     public void testAddUserTests() throws Exception {
 
-        app.getAddUserHelper().initAddUser();
-        app.getAddUserHelper().fillUserForm(new ContactData(
+        app.getContactHelper().initAddUser();
+        app.getContactHelper().fillUserForm(new ContactData(
                 "Mike", "Vlad", "Kryz",
                 "My Address", "8800755000",
                 "mail@mail.mail", "test1"), true);
-        app.getAddUserHelper().clickEnter();
-        app.getAddUserHelper().goToHomePageInAddUserPage();
+        app.getContactHelper().clickEnter();
+        app.getContactHelper().goToHomePageInAddUserPage();
         app.logout();
 
     }

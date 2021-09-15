@@ -22,7 +22,7 @@ public class ApplicationManager {
         this.browser = browser;
     }
 
-    public void init() {
+   public void init() {
 
         if (browser.equals(BrowserType.CHROME)) {
             wd = new ChromeDriver();
@@ -32,7 +32,7 @@ public class ApplicationManager {
             wd = new EdgeDriver();
         }
 
-        wd.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/group.php");
         groupHelper = new GroupHelper(wd);
         navigationHelper = new NavigationHelper(wd);
@@ -71,7 +71,7 @@ public class ApplicationManager {
         return navigationHelper;
     }
 
-    public ContactHelper getAddUserHelper() {
+    public ContactHelper getContactHelper() {
         return contactHelper;
     }
 }

@@ -7,9 +7,9 @@ public class ContactDelitionTests extends TestBase {
     @Test
     public void delitionFirstOneUser() {
         app.getNavigationHelper().goToHomePage();
-        app.getAddUserHelper().selectFirstUserInList();
-        app.getAddUserHelper().clickOnDeleteButton();
-        app.getAddUserHelper().acceptAlert();
+        app.getContactHelper().selectFirstUserInList();
+        app.getContactHelper().clickOnDeleteButton();
+        app.getContactHelper().acceptAlert();
         app.logout();
 
     }
