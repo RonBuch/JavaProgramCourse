@@ -103,6 +103,10 @@ public class ContactHelper extends HelperBase {
     }
 
 
+    public void selectContact(int index) {
+        wd.findElements(By.name("selected[]")).get(index).click();
+    }
+
 }
 
 

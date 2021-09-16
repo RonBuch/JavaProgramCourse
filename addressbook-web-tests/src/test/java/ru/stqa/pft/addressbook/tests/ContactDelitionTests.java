@@ -19,14 +19,12 @@ public class ContactDelitionTests extends TestBase {
 
         }
         List<ContactData> before = app.getContactHelper().getContactList();
-        app.getContactHelper().selectFirstUserInList();
+        app.getContactHelper().selectContact(before.size() - 1);
         app.getContactHelper().clickOnDeleteButton();
         app.getContactHelper().acceptAlert();
         app.getNavigationHelper().goToHomePage();
         List<ContactData> after = app.getContactHelper().getContactList();
         Assert.assertEquals(after.size(), before.size() - 1);
-//        app.logout();
-
     }
 
 
